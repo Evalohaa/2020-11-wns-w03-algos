@@ -8,7 +8,14 @@
 
 // ↓ uncomment bellow lines and add your response!
 
-// export default function ({ events }: { events: EventWithCategory[] }): string[] {
+export default function ({ events }: { events: EventWithCategory[] }): string[] {
+    let monSet = new Set<string>()
+    events.forEach((event) => {
+        event.categories.forEach((category) => {
+            monSet.add(category)
+        })
+    })
+    return Array.from(monSet).sort()
 //     const sortedCategories: string [] = []
 //     events.forEach((event) => {
 //         event.categories.forEach((categorie) => {
@@ -18,7 +25,7 @@
 //         })
 //     })
 //     return sortedCategories.sort();
-// }
+}
 
 
 // used interfaces, do not touch

@@ -10,23 +10,28 @@
 // ↓ uncomment bellow lines and add your response!
 
 export default function ({ events }: { events: EventDatetime[] }): EventDatetime[] {
-    const sortedByDay = events.sort((a: EventDatetime, b: EventDatetime): number => {
-        
-        const startTimeB = new Date(b.startDatetime).getTime()
-        const startTimeA = new Date(a.startDatetime).getTime()
-        
-        if( startTimeB === startTimeA ) {
-            const endTimeB = new Date(b.endDatetime).getTime()
-            const endTimeA = new Date(a.endDatetime).getTime()
-
-            return (endTimeA - startTimeA) - (endTimeB - startTimeB) 
-        } else {
-            return startTimeA - startTimeB
+    return events.sort((event1, event2) => {
+        if (event1.startDatetime === event2.startDatetime) {
+            return event1.endDatetime < event2.endDatetime ? -1 : 0;
         }
+        return event1.startDatetime < event2.startDatetime ? -1 : 0;
     })
-    return sortedByDay;
 }
+    // const sortedByDay = events.sort((a: EventDatetime, b: EventDatetime): number => {
+        
+    //     const startTimeB = new Date(b.startDatetime).getTime()
+    //     const startTimeA = new Date(a.startDatetime).getTime()
+        
+    //     if( startTimeB === startTimeA ) {
+    //         const endTimeB = new Date(b.endDatetime).getTime()
+    //         const endTimeA = new Date(a.endDatetime).getTime()
 
+    //         return (endTimeA - startTimeA) - (endTimeB - startTimeB) 
+    //     } else {
+    //         return startTimeA - startTimeB
+    //     }
+    // })
+    // return sortedByDay;
 
 // used interfaces, do not touch
 export interface EventDatetime {
