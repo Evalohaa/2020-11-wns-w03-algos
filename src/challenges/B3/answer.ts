@@ -9,11 +9,11 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/*
-export default function ({ groups }: { groups: GroupWithSills[] }): GroupWithSillsAndClosestGroups[] {
-    return [];
-}
-*/
+
+// export default function ({ groups }: { groups: GroupWithSills[] }): GroupWithSillsAndClosestGroups[] {
+//     return [];
+// }
+
 
 // used interfaces, do not touch
 export interface GroupWithSills {
